@@ -144,9 +144,11 @@ PlyExporter::PlyExporter(const char* _filename, const aiScene* pScene, bool bina
     else {
         mOutput << "format ascii 1.0" << endl;
     }
-    mOutput << "comment Created by Open Asset Import Library - http://assimp.sf.net (v"
-        << aiGetVersionMajor() << '.' << aiGetVersionMinor() << '.'
-        << aiGetVersionRevision() << ")" << endl;
+//    mOutput << "comment Created by Open Asset Import Library - http://assimp.sf.net (v"
+//        << aiGetVersionMajor() << '.' << aiGetVersionMinor() << '.'
+//        << aiGetVersionRevision() << ")" << endl;
+
+	mOutput << "comment File produced by SOL Viewer by Scan Dimension (https://scandimension.com/)" << endl;
 
     // Look through materials for a diffuse texture, and add it if found
     for ( unsigned int i = 0; i < pScene->mNumMaterials; ++i )

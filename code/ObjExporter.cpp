@@ -126,9 +126,9 @@ ObjExporter::ObjExporter(const char* _filename, const aiScene* pScene, bool noMt
     // make sure that all formatting happens using the standard, C locale and not the user's current locale
     const std::locale& l = std::locale("C");
     mOutput.imbue(l);
-    mOutput.precision(16);
+	mOutput.precision(8);
     mOutputMat.imbue(l);
-    mOutputMat.precision(16);
+	mOutputMat.precision(8);
 
     WriteGeometryFile(noMtl);
     if ( !noMtl ) {
@@ -166,9 +166,11 @@ std::string ObjExporter::GetMaterialLibFileName() {
 
 // ------------------------------------------------------------------------------------------------
 void ObjExporter::WriteHeader(std::ostringstream& out) {
-    out << "# File produced by Open Asset Import Library (http://www.assimp.sf.net)" << endl;
-    out << "# (assimp v" << aiGetVersionMajor() << '.' << aiGetVersionMinor() << '.'
-        << aiGetVersionRevision() << ")" << endl  << endl;
+//    out << "# File produced by Open Asset Import Library (http://www.assimp.sf.net)" << endl;
+//    out << "# (assimp v" << aiGetVersionMajor() << '.' << aiGetVersionMinor() << '.'
+//        << aiGetVersionRevision() << ")" << endl  << endl;
+
+	out << "# File produced by SOL Viewer by Scan Dimension (https://scandimension.com/)" << endl << endl;
 }
 
 // ------------------------------------------------------------------------------------------------

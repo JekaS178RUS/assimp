@@ -114,8 +114,11 @@ STLExporter::STLExporter(const char* _filename, const aiScene* pScene, bool expo
     mOutput.precision(16);
     if (binary) {
         char buf[80] = {0} ;
-        buf[0] = 'A'; buf[1] = 's'; buf[2] = 's'; buf[3] = 'i'; buf[4] = 'm'; buf[5] = 'p';
-        buf[6] = 'S'; buf[7] = 'c'; buf[8] = 'e'; buf[9] = 'n'; buf[10] = 'e';
+		//buf[0] = 'A'; buf[1] = 's'; buf[2] = 's'; buf[3] = 'i'; buf[4] = 'm'; buf[5] = 'p';
+		//buf[6] = 'S'; buf[7] = 'c'; buf[8] = 'e'; buf[9] = 'n'; buf[10] = 'e';
+		buf[0]='S'; buf[1]='o'; buf[2]='l';
+		buf[3]='M'; buf[4]='o'; buf[5]='d'; buf[6]='e'; buf[7]='l';
+
         mOutput.write(buf, 80);
         unsigned int meshnum = 0;
         for(unsigned int i = 0; i < pScene->mNumMeshes; ++i) {
@@ -142,7 +145,8 @@ STLExporter::STLExporter(const char* _filename, const aiScene* pScene, bool expo
         } 
 
         // Export the assimp mesh 
-        const std::string name = "AssimpScene";
+		//const std::string name = "AssimpScene";
+		const std::string name = "SolModel";
         mOutput << SolidToken << " " << name << endl;
         for(unsigned int i = 0; i < pScene->mNumMeshes; ++i) {
             WriteMesh(pScene->mMeshes[ i ]);
